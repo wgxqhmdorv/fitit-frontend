@@ -1,3 +1,12 @@
-export default itemList = items => {
-  return items.map(item => <div>{item}</div>);
-};
+import { memo } from "react";
+import Item from "./item";
+
+const ItemList = ({ items }) => (
+  <div>
+    {items.map(item => (
+      <Item item={item} />
+    ))}
+  </div>
+);
+
+export default memo(ItemList);
