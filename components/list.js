@@ -14,7 +14,15 @@ const List = () => {
 
   const addItem = event => {
     if (input != "") {
-      setItems(items.concat(input));
+      const newItem = {
+        name: input,
+        weight: (Math.random() * 50 + 50).toFixed(2),
+        calories: (Math.random() * 300 + 100).toFixed(2),
+        carbohydrates: (Math.random() * 30 + 1).toFixed(2),
+        proteins: (Math.random() * 15 + 1).toFixed(2),
+        fats: (Math.random() * 10 + 1).toFixed(2)
+      };
+      setItems(items.concat(newItem));
       setInput("");
     }
     event.preventDefault();
