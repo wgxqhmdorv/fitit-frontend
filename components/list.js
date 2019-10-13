@@ -1,6 +1,7 @@
 import { useState, useCallback, createContext, useMemo } from "react";
 import ItemList from "./itemList";
 import Form from "./form";
+import Category from "./category";
 
 const ListApi = createContext(null);
 
@@ -16,11 +17,11 @@ const List = () => {
     if (input != "") {
       const newItem = {
         name: input,
-        weight: (Math.random() * 50 + 50).toFixed(2),
-        calories: (Math.random() * 300 + 100).toFixed(2),
-        carbohydrates: (Math.random() * 30 + 1).toFixed(2),
-        proteins: (Math.random() * 15 + 1).toFixed(2),
-        fats: (Math.random() * 10 + 1).toFixed(2)
+        weight: Math.round(Math.random() * 50 + 50),
+        calories: Math.round(Math.random() * 300 + 100),
+        carbohydrates: Math.round(Math.random() * 30 + 1),
+        proteins: Math.round(Math.random() * 15 + 1),
+        fats: Math.round(Math.random() * 10 + 1)
       };
       setItems(items.concat(newItem));
       setInput("");
@@ -37,6 +38,7 @@ const List = () => {
   return (
     <>
       <Form input={input} changeInput={changeInput} addItem={addItem} />
+      <Category items={items} />
       <ListApi.Provider value={getListApi}>
         <ItemList items={items} />
       </ListApi.Provider>
