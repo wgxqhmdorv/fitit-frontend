@@ -7,11 +7,20 @@ const Item = ({ item }) => {
   return (
     <div className="mb-2 bg-gray-100 p-2 rounded-lg">
       <div className="flex justify-between">
-        <p className="capitalize">{item}</p>
+        <p className="capitalize">{item.name}</p>
         <X handleOnClick={() => api.removeItem(item)} />
       </div>
-      <p className="text-temp">{Math.floor(Math.random() * 50 + 50)} g</p>
-      <p className="text-temp">{Math.floor(Math.random() * 300 + 100)} kcal</p>
+      <div className="text-xs text-temp ">
+        <p>{item.weight} g</p>
+        <div className="flex">
+          <p>{item.calories} kcal</p>
+          <div className="flex w-1/2 justify-around ml-8">
+            <p>{item.carbohydrates} g</p>
+            <p>{item.proteins} g</p>
+            <p>{item.fats} g</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
