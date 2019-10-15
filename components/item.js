@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import actions from "../redux/actions";
+import { deleteItem } from "../redux/features/listSlice";
 
 const Item = ({ item, deleteItem }) => {
   return (
@@ -30,7 +30,9 @@ const Item = ({ item, deleteItem }) => {
   );
 };
 
+const mapDispatchToProps = { deleteItem };
+
 export default connect(
   null,
-  actions
+  mapDispatchToProps
 )(Item);

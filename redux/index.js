@@ -1,7 +1,4 @@
-import { createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import reducer from "./reducers";
+import { configureStore } from "redux-starter-kit";
+import rootReducer from "./reducers";
 
-export const initStore = () => {
-  return createStore(reducer, composeWithDevTools());
-};
+export const initStore = () => configureStore({ reducer: rootReducer });
