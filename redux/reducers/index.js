@@ -1,8 +1,6 @@
 import { combineReducers } from "redux";
-import listReducer from "./listReducers";
+import listReducer from "../features/listSlice";
 
-const rootReducer = combineReducers({
-  lists: listReducer
+export default combineReducers({
+  list: listReducer
 });
-
-export default rootReducer;

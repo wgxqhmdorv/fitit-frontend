@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
 import { useState } from "react";
-import actions from "../redux/actions";
+import { addItem } from "../redux/features/listSlice";
 
 const Form = ({ addItem }) => {
   const [input, setInput] = useState("");
 
   const handleOnClick = event => {
+    event.preventDefault();
     if (input !== "") {
       addItem({
         id: Math.round(Math.random() * 10000),
@@ -18,7 +19,6 @@ const Form = ({ addItem }) => {
       });
       setInput("");
     }
-    event.preventDefault();
   };
 
   return (
@@ -42,7 +42,9 @@ const Form = ({ addItem }) => {
   );
 };
 
+const mapDispatch = { addItem };
+
 export default connect(
   null,
-  actions
+  mapDispatch
 )(Form);
