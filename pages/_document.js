@@ -14,7 +14,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head />
-        <body>
+        <body className="p-4 md:p-12">
           <Main />
           <NextScript />
         </body>
