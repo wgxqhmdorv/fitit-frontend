@@ -1,5 +1,5 @@
-import { from } from "rxjs/observable/from";
 import { useState } from "react";
+import InputForm from "./inputForm";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -16,21 +16,19 @@ const Login = () => {
   return (
     <form onSubmit={handleOnSubmit} className="flex justify-center w-full">
       <div className="flex flex-col">
-        <label className="flex justify-center">Username</label>
-        <input
+        <InputForm
+          name="Username"
           type="text"
           value={username}
           onChange={() => setUsername(event.target.value)}
           placeholder="Enter your username"
-          className="border-2"
         />
-        <label className="flex justify-center">Password</label>
-        <input
+        <InputForm
+          name="Password"
           type="password"
           value={pass}
           onChange={() => setPass(event.target.value)}
           placeholder="Enter your password"
-          className="border-2"
         />
         <div className="flex justify-center">
           <button
