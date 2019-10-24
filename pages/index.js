@@ -1,4 +1,7 @@
 import "../styles/index.css";
 import List from "../components/list";
+import withLayout from "../components/withLayout";
 
-export default () => <List />;
+const Index = () => <List />;
+
+export default withLayout(Index);
