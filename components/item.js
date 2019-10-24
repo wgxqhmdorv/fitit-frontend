@@ -3,7 +3,7 @@ import { deleteItem } from "../redux/features/listSlice";
 
 const Item = ({ item, deleteItem }) => {
   return (
-    <div className="mb-2 bg-gray-100 p-2 rounded-lg">
+    <div className="mb-2 bg-white p-2 rounded-lg">
       <div className="flex justify-between">
         <p className="capitalize">{item.name}</p>
         <button onClick={() => deleteItem(item)}>
