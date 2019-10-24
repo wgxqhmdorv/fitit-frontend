@@ -1,14 +1,17 @@
 import { useState } from "react";
 import InputForm from "./inputForm";
 
-const Login = () => {
+const Register = () => {
+  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [pass, setPass] = useState("");
 
   const handleOnSubmit = event => {
     event.preventDefault();
+    console.log(email);
     console.log(username);
     console.log(pass);
+    setEmail("");
     setUsername("");
     setPass("");
   };
@@ -24,6 +27,13 @@ const Login = () => {
           placeholder="Enter your username"
         />
         <InputForm
+          name="Email"
+          type="text"
+          value={email}
+          onChange={() => setEmail(event.target.value)}
+          placeholder="Enter your email"
+        />
+        <InputForm
           name="Password"
           type="password"
           value={pass}
@@ -35,7 +45,7 @@ const Login = () => {
             type="submit"
             className="block bg-primary rounded py-2 px-10 mt-2"
           >
-            Submit
+            Register
           </button>
         </div>
       </div>
@@ -43,4 +53,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
