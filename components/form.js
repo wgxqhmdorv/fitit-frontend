@@ -22,22 +22,42 @@ const Form = ({ addItem }) => {
   };
 
   return (
-    <form
-      onSubmit={handleOnClick}
-      className="w-full border-b-2 border-green-300 pb-2 mb-2"
-    >
-      <div className="flex justify-between">
+    <form onSubmit={handleOnClick}>
+      <div className="container">
         <input
           type="text"
           value={input}
           onChange={() => setInput(event.target.value)}
           placeholder="Search for your product"
-          className="w-3/4 p-2 flex-grow text-gray-700"
         />
-        <button type="submit" className="block bg-primary py-2 px-4 mx-4">
-          Add
-        </button>
+        <button type="submit">Add</button>
       </div>
+
+      <style jsx>{`
+        form {
+          width: 100%;
+          border-bottom-width: 2px;
+          border-color: #9ae6b4;
+          padding-bottom: 0.5rem;
+        }
+
+        .container {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        input {
+          padding: 0.5rem;
+          flex-grow: 1;
+          color: #4a5568;
+        }
+
+        button {
+          background-color: #48bb78;
+          padding: 0.5rem 1rem 0.5rem 1rem;
+          margin: 0 1rem 0 1rem;
+        }
+      `}</style>
     </form>
   );
 };

@@ -8,21 +8,64 @@ const withLayout = Page => {
     const handleNavbarChange = () => setNavbarVisible(!navbarVisible);
 
     return (
-      <div className="flex flex-col lg:flex-row h-screen bg-gray-100">
-        <div className="flex flex-row lg:flex-col bg-white border-b-2 lg:border-r-2 lg:border-b-0 border-gray-200 pr-4">
-          <img
-            src="/logo.png"
-            alt="FitIT logotype"
-            className="mr-auto p-2 h-16 lg:h-24 lg:m-auto"
-          />
-          <button className="p-4 lg:hidden" onClick={handleNavbarChange}>
-            =
-          </button>
+      <div className="pageContainer">
+        <header>
+          <img src="/logo.png" alt="FitIT logotype" />
+          <button onClick={handleNavbarChange}>=</button>
           <Nav isVisible={navbarVisible} />
-        </div>
+        </header>
         <div className="flex-grow">
           <Page />
         </div>
+
+        <style jsx>{`
+          .pageContainer {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f7fafc;
+          }
+          header {
+            display: flex;
+            flex-direction: row;
+            background-color: white;
+          }
+          img {
+            margin-right: auto;
+            padding: 0.5rem;
+            height: 4rem;
+          }
+          button {
+            padding: 1rem;
+          }
+          .flex-grow {
+            flex-grow: 1;
+          }
+          @media (min-width: 1024px) {
+            .pageContainer {
+              flex-direction: row;
+            }
+            header {
+              position: relative;
+              flex-direction: column;
+            }
+            header:before {
+              content: "";
+              position: absolute;
+              right: 0;
+              width: 2px;
+              height: 100vh;
+              background-color: #edf2f7;
+            }
+            img {
+              height: 6rem;
+              margin: auto;
+            }
+            button {
+              display: none;
+            }
+          }
+        `}</style>
       </div>
     );
   };

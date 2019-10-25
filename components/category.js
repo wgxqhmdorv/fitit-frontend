@@ -5,16 +5,24 @@ const reduceObjects = (array, key) =>
 
 const Category = ({ list }) => {
   return (
-    <div className="mb-2">
-      <p className="font-bold">Summary</p>
-      <div className="flex text-xs text-temp ml-2">
+    <div style={{ marginBottom: "1rem" }}>
+      <p style={{ fontWeight: "700" }}>Summary</p>
+      <div className="grid">
         <p>{reduceObjects(list, "calories")} kcal</p>
-        <div className="flex w-1/2 justify-around ml-8">
-          <p>{reduceObjects(list, "carbohydrates")} g</p>
-          <p>{reduceObjects(list, "proteins")} g</p>
-          <p>{reduceObjects(list, "fats")} g</p>
-        </div>
+        <p>{reduceObjects(list, "carbohydrates")} g</p>
+        <p>{reduceObjects(list, "proteins")} g</p>
+        <p>{reduceObjects(list, "fats")} g</p>
       </div>
+
+      <style jsx>{`
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          font-size: 0.75rem;
+          color: #a9a9a9;
+          padding: 0 0.5rem 0 0.5rem;
+        }
+      `}</style>
     </div>
   );
 };
