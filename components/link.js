@@ -5,18 +5,28 @@ const LinkButton = ({ href, active, setActive }) => {
   const componentName = href ? href[0].toUpperCase() + href.slice(1) : "Home";
 
   return (
-    <Link href={url}>
-      <a
-        onClick={() => setActive(() => url)}
-        className={`block p-2 pl-12 my-2 border-l-4 ${
-          active === url
-            ? "border-primary text-black"
-            : "text-temp border-white hover:border-gray-400"
-        }`}
-      >
-        {componentName}
-      </a>
-    </Link>
+    <>
+      <Link href={url}>
+        <a onClick={() => setActive(() => url)}>{componentName}</a>
+      </Link>
+      <style jsx>{`
+        a {
+          display: block;
+          padding: 0.5rem 0.5rem 0.5rem 3rem;
+          margin: 0.5rem 0 0.5rem 0;
+          border-left-width: 4px;
+        }
+      `}</style>
+      <style jsx>{`
+        a {
+          border-color: ${url === active ? "#48BB78" : "white"};
+          color: ${url === active ? "black" : "#A9A9A9"};
+        }
+        a:hover {
+          border-color: ${url == active ? "#22543D" : "#cbd5e0"};
+        }
+      `}</style>
+    </>
   );
 };
 
